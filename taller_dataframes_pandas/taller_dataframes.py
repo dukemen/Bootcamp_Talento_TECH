@@ -19,7 +19,7 @@ ruta_archivo = filedialog.askopenfilename(
 if ruta_archivo:
     print(f"\nArchivo seleccionado: {ruta_archivo}\n")
     
-    # Cargar el archivo CSV en un DataFrame
+    # Cargar el archivo CSV en un DataFrame de pandas
     df = pd.read_csv(ruta_archivo)
     
     # Mostrar las primeras 5 filas del DataFrame
@@ -31,16 +31,61 @@ if ruta_archivo:
     print(df.tail())     # últimas 5 filas
     
     # Mostrar información general del DataFrame
-    print("\nInformación del DataFrame:")
+    print("\nInformación general del DataFrame:")
     print(df.info())
     
-    # Mostrar estadísticas descriptivas
-    print("\nEstadísticas descriptivas:")
+      # Mostrar Nombre de las columnas
+    print("\nNombre de las columnas:")
+    print(df.columns)
+
+    # Mostrar índice de las filas
+    print("\nÍndice de las filas:")
+    print(df.index)
+    
+     # Mostrar estadísticas descriptivas de las columnas numéricas
+    print("\nEstadísticas descriptivas de las columnas numéricas:")
     print(df.describe())
     
     # Mostrar dimensiones
     print(f"\nDimensiones: {df.shape[0]} filas y {df.shape[1]} columnas")
-    
+
+    # PREGUNTAS DEL TALLER
+    print("\n" + "="*60)
+    print("RESPUESTAS A LAS PREGUNTAS DEL TALLER")
+    print("="*60)
+
+    # 1. ¿Cuál es la variable con mayor promedio?
+    print("\n1. Variable con mayor promedio:")
+    promedios = df.mean(numeric_only=True)
+    variable_mayor_promedio = promedios.idxmax()
+    valor_mayor_promedio = promedios.max()
+    print(f"   La variable '{variable_mayor_promedio}' tiene el mayor promedio: {valor_mayor_promedio:.2f}")
+    print("\n   Promedios de todas las variables numéricas:")
+    print(promedios)
+
+    # 2. ¿Existen valores nulos?
+    print("\n2. Valores nulos:")
+    valores_nulos_por_columna = df.isnull().sum()
+    total_nulos = valores_nulos_por_columna.sum()
+    if total_nulos > 0:
+        print(f"   Sí, existen {total_nulos} valores nulos en total.")
+        print("\n   Valores nulos por columna:")
+        print(valores_nulos_por_columna[valores_nulos_por_columna > 0])
+    else:
+        print("   No, no existen valores nulos en el dataset.")
+
+    # 3. ¿Qué columnas son categóricas?
+    print("\n3. Columnas categóricas:")
+    columnas_categoricas = df.select_dtypes(include=['object']).columns
+    if len(columnas_categoricas) > 0:
+        print(f"   Hay {len(columnas_categoricas)} columna(s) categórica(s):")
+        for col in columnas_categoricas:
+            print(f"   - {col}")
+    else:
+        print("   No hay columnas categóricas (tipo object) en el dataset.")
+
+    print("\n" + "="*60)
+
     # Visualizar el DataFrame completo en VS Code
     df
     
