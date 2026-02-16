@@ -86,6 +86,33 @@ if ruta_archivo:
 
     print("\n" + "="*60)
 
+    # 🧹 PARTE 3: LIMPIEZA DE DATOS
+    print("\n" + "="*60)
+    print("🧹 LIMPIEZA DE DATOS - VALORES FALTANTES")
+    print("="*60)
+
+    # Si hay valores nulos, aplicar limpieza
+    if total_nulos > 0:
+        print(f"\n⚠️  Se detectaron {total_nulos} valores nulos.")
+        print("   Aplicando limpieza de datos...\n")
+
+        # OPCIÓN 1: Eliminar filas con valores nulos (comentado)
+        # df = df.dropna()
+        # print("   ✓ Filas con valores nulos eliminadas.")
+
+        # OPCIÓN 2: Rellenar valores nulos con el promedio (activo)
+        df.fillna(df.mean(numeric_only=True), inplace=True)
+        print("   ✓ Valores nulos rellenados con el promedio de cada columna.")
+
+        # Verificar que ya no hay nulos
+        print(f"\n   Verificación: {df.isnull().sum().sum()} valores nulos restantes.")
+        print(f"   Dimensiones después de limpieza: {df.shape[0]} filas y {df.shape[1]} columnas")
+    else:
+        print("\n✅ No hay valores nulos en el dataset.")
+        print("   No es necesario aplicar limpieza de datos.")
+
+    print("\n" + "="*60)
+
     # Visualizar el DataFrame completo en VS Code
     df
     
