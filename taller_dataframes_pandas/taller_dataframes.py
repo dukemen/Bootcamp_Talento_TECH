@@ -1,5 +1,6 @@
 # Importar las bibliotecas necesarias
 import pandas as pd
+import matplotlib.pyplot as plt
 from tkinter import Tk, filedialog
 
 # Crear una ventana oculta de tkinter
@@ -110,6 +111,68 @@ if ruta_archivo:
     else:
         print("\n✅ No hay valores nulos en el dataset.")
         print("   No es necesario aplicar limpieza de datos.")
+
+    print("\n" + "="*60)
+
+    # 📊 PARTE 6: VISUALIZACIÓN BÁSICA DE DATOS
+    print("\n" + "="*60)
+    print("📊 VISUALIZACIÓN BÁSICA DE DATOS")
+    print("="*60)
+
+    # --- Histograma de Salarios ---
+    if 'Salario' in df.columns:
+        plt.figure(figsize=(8, 5))
+        df['Salario'].hist(bins=10, color='#5BA3CF', edgecolor='black')
+        plt.title('Distribución de Salarios')
+        plt.xlabel('Salario ($)')
+        plt.ylabel('Frecuencia')
+        plt.tight_layout()
+        plt.show()
+        print("   ✓ Histograma de Salarios generado.")
+    else:
+        print("   ⚠️  Columna 'Salario' no encontrada. Histograma omitido.")
+
+    # --- Gráfico de barras: Salario promedio por Ciudad ---
+    if 'Salario' in df.columns and 'Ciudad' in df.columns:
+        plt.figure(figsize=(8, 5))
+        df.groupby('Ciudad')['Salario'].mean().plot(kind='bar', color='#F2AD5E', edgecolor='black')
+        plt.title('Salario Promedio por Ciudad')
+        plt.xlabel('Ciudad')
+        plt.ylabel('Salario Promedio ($)')
+        plt.xticks(rotation=45, ha='right')
+        plt.tight_layout()
+        plt.show()
+        print("   ✓ Gráfico de barras (Salario promedio por Ciudad) generado.")
+    else:
+        print("   ⚠️  Columnas 'Salario' y/o 'Ciudad' no encontradas. Gráfico de barras omitido.")
+
+    # --- Scatter plot: Edad vs Salario ---
+    if 'Edad' in df.columns and 'Salario' in df.columns:
+        plt.figure(figsize=(8, 5))
+        df.plot(x='Edad', y='Salario', kind='scatter', color='#6BCB77', ax=plt.gca())
+        plt.title('Edad vs Salario')
+        plt.xlabel('Edad')
+        plt.ylabel('Salario ($)')
+        plt.tight_layout()
+        plt.show()
+        print("   ✓ Scatter plot (Edad vs Salario) generado.")
+    else:
+        print("   ⚠️  Columnas 'Edad' y/o 'Salario' no encontradas. Scatter plot omitido.")
+
+    # --- Box plot: Distribución de Salarios por Departamento ---
+    if 'Salario' in df.columns and 'Departamento' in df.columns:
+        plt.figure(figsize=(8, 5))
+        df.boxplot(column='Salario', by='Departamento', grid=False)
+        plt.title('Distribución de Salarios por Departamento')
+        plt.suptitle('')  # Eliminar el título automático de pandas
+        plt.xlabel('Departamento')
+        plt.ylabel('Salario ($)')
+        plt.xticks(rotation=45, ha='right')
+        plt.tight_layout()
+        plt.show()
+        print("   ✓ Box plot (Salarios por Departamento) generado.")
+    else:
+        print("   ⚠️  Columnas 'Salario' y/o 'Departamento' no encontradas. Box plot omitido.")
 
     print("\n" + "="*60)
 
