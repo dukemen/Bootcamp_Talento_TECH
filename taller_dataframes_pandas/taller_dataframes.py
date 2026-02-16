@@ -113,9 +113,79 @@ if ruta_archivo:
 
     print("\n" + "="*60)
 
+    # 📊 PARTE 5: AGRUPACIÓN Y ANÁLISIS
+    print("\n" + "="*60)
+    print("📊 PARTE 5: AGRUPACIÓN Y ANÁLISIS")
+    print("="*60)
+
+    # Detectar columnas relevantes para el análisis
+    columnas_texto = df.select_dtypes(include=['object']).columns
+    columnas_numericas = df.select_dtypes(include=['number']).columns
+
+    # Buscar columna de ciudad (puede llamarse 'Ciudad', 'city', etc.)
+    col_ciudad = None
+    for col in columnas_texto:
+        if col.lower() in ['ciudad', 'city', 'ciudad_residencia', 'ubicacion']:
+            col_ciudad = col
+            break
+
+    # Buscar columna de salario
+    col_salario = None
+    for col in columnas_numericas:
+        if col.lower() in ['salario', 'salary', 'sueldo', 'ingreso', 'ingresos']:
+            col_salario = col
+            break
+
+    if col_ciudad and col_salario:
+        # 1. ¿Qué ciudad tiene mayor promedio salarial?
+        print(f"\n1. Promedio salarial por ciudad (columnas: '{col_ciudad}', '{col_salario}'):")
+        promedio_por_ciudad = df.groupby(col_ciudad)[col_salario].mean().sort_values(ascending=False)
+        print(promedio_por_ciudad)
+        ciudad_mayor_salario = promedio_por_ciudad.idxmax()
+        valor_mayor_salario = promedio_por_ciudad.max()
+        print(f"\n   ✅ La ciudad con mayor promedio salarial es '{ciudad_mayor_salario}' con ${valor_mayor_salario:,.2f}")
+
+        # 2. ¿Cuál ciudad tiene más registros?
+        print(f"\n2. Cantidad de registros por ciudad:")
+        registros_por_ciudad = df.groupby(col_ciudad).size().sort_values(ascending=False)
+        print(registros_por_ciudad)
+        ciudad_mas_registros = registros_por_ciudad.idxmax()
+        cantidad_registros = registros_por_ciudad.max()
+        print(f"\n   ✅ La ciudad con más registros es '{ciudad_mas_registros}' con {cantidad_registros} registros")
+
+        # Extra: Resumen estadístico agrupado por ciudad
+        print(f"\n3. Resumen estadístico del salario por ciudad:")
+        resumen = df.groupby(col_ciudad)[col_salario].agg(['mean', 'median', 'min', 'max', 'count'])
+        resumen.columns = ['Promedio', 'Mediana', 'Mínimo', 'Máximo', 'Cantidad']
+        resumen = resumen.sort_values('Promedio', ascending=False)
+        print(resumen)
+    else:
+        # Si no se encuentran las columnas exactas, intentar con la primera columna categórica
+        if len(columnas_texto) > 0 and len(columnas_numericas) > 0:
+            col_grupo = columnas_texto[0]
+            col_valor = columnas_numericas[0]
+            print(f"\n   No se encontraron columnas 'Ciudad'/'Salario'.")
+            print(f"   Usando '{col_grupo}' para agrupar y '{col_valor}' para calcular:\n")
+
+            # 1. Promedio por grupo
+            print(f"1. Promedio de '{col_valor}' por '{col_grupo}':")
+            promedio_grupo = df.groupby(col_grupo)[col_valor].mean().sort_values(ascending=False)
+            print(promedio_grupo)
+            print(f"\n   ✅ '{promedio_grupo.idxmax()}' tiene el mayor promedio: {promedio_grupo.max():,.2f}")
+
+            # 2. Conteo por grupo
+            print(f"\n2. Cantidad de registros por '{col_grupo}':")
+            conteo_grupo = df.groupby(col_grupo).size().sort_values(ascending=False)
+            print(conteo_grupo)
+            print(f"\n   ✅ '{conteo_grupo.idxmax()}' tiene más registros: {conteo_grupo.max()}")
+        else:
+            print("\n   ⚠️  No se encontraron columnas adecuadas para agrupación.")
+
+    print("\n" + "="*60)
+
     # Visualizar el DataFrame completo en VS Code
     df
-    
+
 else:
     # Si no se seleccionó ningún archivo
     print("No se seleccionó ningún archivo.")
