@@ -166,8 +166,18 @@ if ruta_archivo:
     # --- 4.3 Filtros con condiciones ---
     print("\n--- 4.3 Filtros con condiciones ---")
 
+    # Filtrar empleados mayores de 30 años (si existe la columna 'Edad')
+    if 'Edad' in df.columns:
+        print("\n   Filtrar empleados con Edad > 30:")
+        print(df[df['Edad'] > 30])
+
+        # Guardar el resultado en una nueva variable
+        empleados_mayores = df[df['Edad'] > 30]
+        print(f"\n   Empleados mayores de 30: {len(empleados_mayores)} de {len(df)} totales")
+        print(empleados_mayores)
+
     if columnas_numericas:
-        # Filtro con una condición numérica
+        # Filtro con una condición numérica (dinámico)
         col_num = columnas_numericas[0]
         mediana = df[col_num].median()
         filtro_mayor = df[df[col_num] > mediana]
@@ -184,19 +194,33 @@ if ruta_archivo:
     # --- 4.4 Filtros con múltiples condiciones ---
     print("\n--- 4.4 Filtros con múltiples condiciones ---")
 
+    # Filtrar con AND: Edad > 30 Y Salario > 4000
+    if 'Edad' in df.columns and 'Salario' in df.columns:
+        print("\n   Filtro AND: Edad > 30 Y Salario > 4000:")
+        filtro_edad_salario = df[(df['Edad'] > 30) & (df['Salario'] > 4000)]
+        print(f"   Se encontraron {len(filtro_edad_salario)} filas")
+        print(filtro_edad_salario)
+
+    # Filtrar con OR: Ciudad es Bogota O Ciudad es Medellin
+    if 'Ciudad' in df.columns:
+        print("\n   Filtro OR: Ciudad es 'Bogota' O Ciudad es 'Medellin':")
+        filtro_ciudades = df[(df['Ciudad'] == 'Bogota') | (df['Ciudad'] == 'Medellin')]
+        print(f"   Se encontraron {len(filtro_ciudades)} filas")
+        print(filtro_ciudades)
+
     if len(columnas_numericas) >= 2:
         col1 = columnas_numericas[0]
         col2 = columnas_numericas[1]
         mediana1 = df[col1].median()
         mediana2 = df[col2].median()
 
-        # Condición AND (&)
+        # Condición AND (&) - dinámico
         filtro_and = df[(df[col1] > mediana1) & (df[col2] > mediana2)]
         print(f"\n   Filtro AND: '{col1}' > {mediana1:.2f} Y '{col2}' > {mediana2:.2f}:")
         print(f"   Se encontraron {len(filtro_and)} filas")
         print(filtro_and.head(10))
 
-        # Condición OR (|)
+        # Condición OR (|) - dinámico
         filtro_or = df[(df[col1] > mediana1) | (df[col2] > mediana2)]
         print(f"\n   Filtro OR: '{col1}' > {mediana1:.2f} O '{col2}' > {mediana2:.2f}:")
         print(f"   Se encontraron {len(filtro_or)} filas")
