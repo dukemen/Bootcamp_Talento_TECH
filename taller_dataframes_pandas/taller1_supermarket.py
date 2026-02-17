@@ -4,11 +4,13 @@
 # Sector: Retail / Comercio Minorista
 # ============================================================
 
-import pandas as pd
-import numpy as np
-import matplotlib.pyplot as plt
-import seaborn as sns
-from scipy import stats
+import pandas as pd #librería principal para manipulación y análisis de datos estructurados. - Leer archivos (CSV, Excel, SQL, JSON, etc.) - 
+#Limpiar datos (nulos, duplicados, transformaciones) - Filtrar, agrupar y agregar datos - Crear nuevas columnas
+import numpy as np #es la base del cálculo numérico en Python. - Funciones estadísticas básicas - Operaciones matemáticas rápidas
+import matplotlib.pyplot as plt #es la librería base para visualización de datos. - Gráficos de líneas - Barras - Histogramas - Dispersión
+import seaborn as sns # librería de visualización basada en matplotlib pero más estadística y elegante por defecto.
+# Gráficos más estéticos automáticamente - Visualizaciones estadísticas - Mapas de calor - Distribuciones
+from scipy import stats #es un módulo para estadística avanzada. - Estadística inferencial
 
 # ─────────────────────────────────────────────
 # PASO 1 — CARGUE DEL DATASET (descarga directa)
