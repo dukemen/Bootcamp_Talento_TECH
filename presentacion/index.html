@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootcamp Talento TECH - Analisis de Datos</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Barra de progreso superior -->
+    <div class="progress-bar-container">
+        <div class="progress-bar-fill" id="progressBar"></div>
+    </div>
+
+    <!-- Navegacion lateral -->
+    <nav class="slide-nav" id="slideNav">
+        <button class="nav-toggle" id="navToggle">
+            <i class="bi bi-list"></i>
+        </button>
+        <div class="nav-items" id="navItems">
+            <div class="nav-item active" data-slide="0">
+                <i class="bi bi-house-fill"></i>
+                <span>Inicio</span>
+            </div>
+            <div class="nav-item" data-slide="1">
+                <i class="bi bi-person-fill"></i>
+                <span>Sobre Mi</span>
+            </div>
+            <div class="nav-item" data-slide="2">
+                <i class="bi bi-bullseye"></i>
+                <span>Objetivos</span>
+            </div>
+            <div class="nav-item" data-slide="3">
+                <i class="bi bi-tools"></i>
+                <span>Herramientas</span>
+            </div>
+            <div class="nav-item" data-slide="4">
+                <i class="bi bi-file-earmark-code"></i>
+                <span>Taller DataFrames</span>
+            </div>
+            <div class="nav-item" data-slide="5">
+                <i class="bi bi-cart4"></i>
+                <span>Analisis Supermercado</span>
+            </div>
+            <div class="nav-item" data-slide="6">
+                <i class="bi bi-bar-chart-line"></i>
+                <span>Visualizaciones</span>
+            </div>
+            <div class="nav-item" data-slide="7">
+                <i class="bi bi-lightbulb"></i>
+                <span>Hallazgos</span>
+            </div>
+            <div class="nav-item" data-slide="8">
+                <i class="bi bi-code-slash"></i>
+                <span>Codigo en Vivo</span>
+            </div>
+            <div class="nav-item" data-slide="9">
+                <i class="bi bi-rocket-takeoff"></i>
+                <span>Conclusiones</span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Contenedor principal de slides -->
+    <div class="slides-container" id="slidesContainer">
+
+        <!-- SLIDE 0: Portada -->
+        <section class="slide slide-cover active" data-slide="0">
+            <div class="particles" id="particles"></div>
+            <div class="slide-content text-center">
+                <div class="animate-in">
+                    <span class="badge-custom">Bootcamp Talento TECH 2025</span>
+                </div>
+                <h1 class="display-2 fw-800 animate-in delay-1">
+                    Analisis de Datos<br>
+                    <span class="gradient-text">con Python</span>
+                </h1>
+                <p class="lead animate-in delay-2">
+                    Exploracion, limpieza y visualizacion de datos del mundo real
+                </p>
+                <div class="animate-in delay-3">
+                    <button class="btn btn-primary btn-lg px-5 py-3 start-btn" onclick="goToSlide(1)">
+                        Comenzar <i class="bi bi-arrow-right ms-2"></i>
+                    </button>
+                </div>
+                <div class="scroll-hint animate-in delay-4">
+                    <i class="bi bi-chevron-down"></i>
+                    <span>Usa las flechas del teclado o desliza</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 1: Sobre Mi -->
+        <section class="slide" data-slide="1">
+            <div class="slide-content">
+                <div class="container">
+                    <div class="row align-items-center g-5">
+                        <div class="col-lg-5">
+                            <div class="profile-card animate-in">
+                                <div class="profile-avatar">
+                                    <i class="bi bi-person-circle"></i>
+                                </div>
+                                <h3 class="mt-3">Analista de Datos Junior</h3>
+                                <div class="profile-links mt-3">
+                                    <a href="mailto:analistadatosjunior@gmail.com" class="profile-link">
+                                        <i class="bi bi-envelope-fill"></i> Email
+                                    </a>
+                                    <a href="https://linkedin.com/in/dkcontreras" class="profile-link" target="_blank">
+                                        <i class="bi bi-linkedin"></i> LinkedIn
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-7">
+                            <span class="section-label animate-in">Sobre Mi</span>
+                            <h2 class="section-title animate-in delay-1">Participante del Bootcamp</h2>
+                            <p class="section-text animate-in delay-2">
+                                Estudiante en formacion del <strong>Bootcamp Talento TECH</strong>,
+                                enfocado en desarrollar habilidades practicas de analisis de datos
+                                utilizando Python y sus principales librerias.
+                            </p>
+                            <div class="skills-grid animate-in delay-3">
+                                <div class="skill-tag"><i class="bi bi-filetype-py"></i> Python</div>
+                                <div class="skill-tag"><i class="bi bi-table"></i> Pandas</div>
+                                <div class="skill-tag"><i class="bi bi-graph-up"></i> Matplotlib</div>
+                                <div class="skill-tag"><i class="bi bi-bar-chart"></i> Seaborn</div>
+                                <div class="skill-tag"><i class="bi bi-calculator"></i> NumPy</div>
+                                <div class="skill-tag"><i class="bi bi-distribute-vertical"></i> SciPy</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 2: Objetivos -->
+        <section class="slide" data-slide="2">
+            <div class="slide-content">
+                <div class="container">
+                    <div class="text-center mb-5">
+                        <span class="section-label animate-in">Objetivos del Bootcamp</span>
+                        <h2 class="section-title animate-in delay-1">Que aprendemos?</h2>
+                    </div>
+                    <div class="row g-4">
+                        <div class="col-md-6 col-lg-3">
+                            <div class="objective-card animate-in delay-1" onclick="this.classList.toggle('flipped')">
+                                <div class="card-front">
+                                    <div class="obj-icon"><i class="bi bi-database"></i></div>
+                                    <h5>Carga de Datos</h5>
+                                    <p class="small text-muted">Click para ver mas</p>
+                                </div>
+                                <div class="card-back">
+                                    <p>Cargar datos desde archivos CSV, URLs remotas y diferentes fuentes de datos usando Pandas.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-3">
+                            <div class="objective-card animate-in delay-2" onclick="this.classList.toggle('flipped')">
+                                <div class="card-front">
+                                    <div class="obj-icon"><i class="bi bi-search"></i></div>
+                                    <h5>Exploracion</h5>
+                                    <p class="small text-muted">Click para ver mas</p>
+                                </div>
+                                <div class="card-back">
+                                    <p>Explorar datasets identificando tipos de datos, valores nulos, estadisticas descriptivas y patrones.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-3">
+                            <div class="objective-card animate-in delay-3" onclick="this.classList.toggle('flipped')">
+                                <div class="card-front">
+                                    <div class="obj-icon"><i class="bi bi-brush"></i></div>
+                                    <h5>Limpieza</h5>
+                                    <p class="small text-muted">Click para ver mas</p>
+                                </div>
+                                <div class="card-back">
+                                    <p>Limpiar datos: tratar valores nulos, eliminar columnas innecesarias y crear nuevas variables.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-3">
+                            <div class="objective-card animate-in delay-4" onclick="this.classList.toggle('flipped')">
+                                <div class="card-front">
+                                    <div class="obj-icon"><i class="bi bi-pie-chart"></i></div>
+                                    <h5>Visualizacion</h5>
+                                    <p class="small text-muted">Click para ver mas</p>
+                                </div>
+                                <div class="card-back">
+                                    <p>Crear graficos informativos: barras, lineas, pastel, histogramas y mapas de calor.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 3: Herramientas -->
+        <section class="slide" data-slide="3">
+            <div class="slide-content">
+                <div class="container">
+                    <div class="text-center mb-5">
+                        <span class="section-label animate-in">Stack Tecnologico</span>
+                        <h2 class="section-title animate-in delay-1">Herramientas Utilizadas</h2>
+                    </div>
+                    <div class="tools-showcase">
+                        <div class="tool-item animate-in delay-1" data-tool="pandas">
+                            <div class="tool-icon">
+                                <i class="bi bi-table"></i>
+                            </div>
+                            <h5>Pandas</h5>
+                            <p>Manipulacion y analisis de datos tabulares</p>
+                            <div class="tool-details" id="detail-pandas">
+                                <code>import pandas as pd</code>
+                                <ul>
+                                    <li>DataFrames y Series</li>
+                                    <li>Lectura de CSV, Excel, SQL</li>
+                                    <li>Filtrado, agrupacion, agregacion</li>
+                                    <li>Manejo de valores nulos</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="tool-item animate-in delay-2" data-tool="numpy">
+                            <div class="tool-icon">
+                                <i class="bi bi-calculator"></i>
+                            </div>
+                            <h5>NumPy</h5>
+                            <p>Computacion numerica de alto rendimiento</p>
+                            <div class="tool-details" id="detail-numpy">
+                                <code>import numpy as np</code>
+                                <ul>
+                                    <li>Arrays multidimensionales</li>
+                                    <li>Operaciones matematicas</li>
+                                    <li>Algebra lineal</li>
+                                    <li>Generacion de datos aleatorios</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="tool-item animate-in delay-3" data-tool="matplotlib">
+                            <div class="tool-icon">
+                                <i class="bi bi-graph-up"></i>
+                            </div>
+                            <h5>Matplotlib</h5>
+                            <p>Graficos y visualizaciones estaticas</p>
+                            <div class="tool-details" id="detail-matplotlib">
+                                <code>import matplotlib.pyplot as plt</code>
+                                <ul>
+                                    <li>Graficos de barras y lineas</li>
+                                    <li>Histogramas y scatter plots</li>
+                                    <li>Personalizacion completa</li>
+                                    <li>Exportar como PNG, SVG, PDF</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="tool-item animate-in delay-4" data-tool="seaborn">
+                            <div class="tool-icon">
+                                <i class="bi bi-bar-chart-line"></i>
+                            </div>
+                            <h5>Seaborn</h5>
+                            <p>Visualizacion estadistica avanzada</p>
+                            <div class="tool-details" id="detail-seaborn">
+                                <code>import seaborn as sns</code>
+                                <ul>
+                                    <li>Heatmaps de correlacion</li>
+                                    <li>Graficos de distribucion</li>
+                                    <li>Temas predefinidos</li>
+                                    <li>Integracion con Pandas</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 4: Taller DataFrames -->
+        <section class="slide" data-slide="4">
+            <div class="slide-content">
+                <div class="container">
+                    <div class="row align-items-center g-5">
+                        <div class="col-lg-6">
+                            <span class="section-label animate-in">Proyecto 1</span>
+                            <h2 class="section-title animate-in delay-1">Taller de DataFrames</h2>
+                            <p class="section-text animate-in delay-2">
+                                Herramienta interactiva para explorar archivos CSV.
+                                Permite cargar cualquier dataset y realizar un analisis exploratorio completo.
+                            </p>
+                            <div class="feature-list animate-in delay-3">
+                                <div class="feature-item">
+                                    <i class="bi bi-check-circle-fill text-success"></i>
+                                    <span>Seleccion de archivo con dialogo grafico (Tkinter)</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="bi bi-check-circle-fill text-success"></i>
+                                    <span>Exploracion: primeras/ultimas filas, tipos, dimensiones</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="bi bi-check-circle-fill text-success"></i>
+                                    <span>Deteccion y tratamiento de valores nulos</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="bi bi-check-circle-fill text-success"></i>
+                                    <span>Estadisticas descriptivas automaticas</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="bi bi-check-circle-fill text-success"></i>
+                                    <span>Identificacion de columnas categoricas vs numericas</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="code-window animate-in delay-2">
+                                <div class="code-header">
+                                    <span class="dot red"></span>
+                                    <span class="dot yellow"></span>
+                                    <span class="dot green"></span>
+                                    <span class="code-title">taller_dataframes.py</span>
+                                </div>
+                                <pre class="code-body"><code><span class="code-comment"># Cargar datos desde CSV</span>
+<span class="code-keyword">import</span> pandas <span class="code-keyword">as</span> pd
+
+archivo = filedialog.askopenfilename(
+    filetypes=[(<span class="code-string">"CSV"</span>, <span class="code-string">"*.csv"</span>)]
+)
+df = pd.read_csv(archivo)
+
+<span class="code-comment"># Exploracion basica</span>
+<span class="code-keyword">print</span>(df.head())
+<span class="code-keyword">print</span>(df.describe())
+<span class="code-keyword">print</span>(df.isnull().sum())
+
+<span class="code-comment"># Limpieza: rellenar nulos con media</span>
+df.fillna(df.mean(), inplace=<span class="code-keyword">True</span>)</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 5: Analisis Supermercado -->
+        <section class="slide" data-slide="5">
+            <div class="slide-content">
+                <div class="container">
+                    <div class="text-center mb-5">
+                        <span class="section-label animate-in">Proyecto 2</span>
+                        <h2 class="section-title animate-in delay-1">Analisis de Ventas - Supermercado</h2>
+                        <p class="section-text animate-in delay-2">
+                            Analisis completo de 1,000 transacciones de un supermercado real
+                        </p>
+                    </div>
+
+                    <!-- Pipeline interactivo -->
+                    <div class="pipeline animate-in delay-3">
+                        <div class="pipeline-step active-step" onclick="showPipelineDetail(0)">
+                            <div class="step-number">1</div>
+                            <div class="step-label">Carga</div>
+                        </div>
+                        <div class="pipeline-arrow"><i class="bi bi-arrow-right"></i></div>
+                        <div class="pipeline-step" onclick="showPipelineDetail(1)">
+                            <div class="step-number">2</div>
+                            <div class="step-label">Explorar</div>
+                        </div>
+                        <div class="pipeline-arrow"><i class="bi bi-arrow-right"></i></div>
+                        <div class="pipeline-step" onclick="showPipelineDetail(2)">
+                            <div class="step-number">3</div>
+                            <div class="step-label">Filtrar</div>
+                        </div>
+                        <div class="pipeline-arrow"><i class="bi bi-arrow-right"></i></div>
+                        <div class="pipeline-step" onclick="showPipelineDetail(3)">
+                            <div class="step-number">4</div>
+                            <div class="step-label">Transformar</div>
+                        </div>
+                        <div class="pipeline-arrow"><i class="bi bi-arrow-right"></i></div>
+                        <div class="pipeline-step" onclick="showPipelineDetail(4)">
+                            <div class="step-number">5</div>
+                            <div class="step-label">Agrupar</div>
+                        </div>
+                        <div class="pipeline-arrow"><i class="bi bi-arrow-right"></i></div>
+                        <div class="pipeline-step" onclick="showPipelineDetail(5)">
+                            <div class="step-number">6</div>
+                            <div class="step-label">Visualizar</div>
+                        </div>
+                    </div>
+
+                    <div class="pipeline-detail" id="pipelineDetail">
+                        <div class="pipeline-detail-content" id="pipelineDetailContent">
+                            <!-- Se llena dinamicamente con JS -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 6: Visualizaciones -->
+        <section class="slide" data-slide="6">
+            <div class="slide-content">
+                <div class="container">
+                    <div class="text-center mb-5">
+                        <span class="section-label animate-in">Graficos</span>
+                        <h2 class="section-title animate-in delay-1">Visualizaciones Generadas</h2>
+                    </div>
+
+                    <!-- Tabs de graficos -->
+                    <div class="chart-tabs animate-in delay-2">
+                        <button class="chart-tab active" onclick="showChart(0, this)">
+                            <i class="bi bi-bar-chart-fill"></i> Barras
+                        </button>
+                        <button class="chart-tab" onclick="showChart(1, this)">
+                            <i class="bi bi-graph-up-arrow"></i> Lineas
+                        </button>
+                        <button class="chart-tab" onclick="showChart(2, this)">
+                            <i class="bi bi-pie-chart-fill"></i> Pastel
+                        </button>
+                        <button class="chart-tab" onclick="showChart(3, this)">
+                            <i class="bi bi-bar-chart-steps"></i> Histograma
+                        </button>
+                        <button class="chart-tab" onclick="showChart(4, this)">
+                            <i class="bi bi-grid-3x3"></i> Heatmap
+                        </button>
+                    </div>
+
+                    <div class="chart-display animate-in delay-3">
+                        <div class="chart-panel active" id="chart-0">
+                            <div class="chart-mock bar-chart">
+                                <h5>Ventas por Linea de Producto</h5>
+                                <div class="bar-container">
+                                    <div class="bar-row">
+                                        <span class="bar-label">Food & beverages</span>
+                                        <div class="bar" style="--bar-width: 85%; --bar-color: #667eea;">
+                                            <span class="bar-value">$56,144</span>
+                                        </div>
+                                    </div>
+                                    <div class="bar-row">
+                                        <span class="bar-label">Sports & travel</span>
+                                        <div class="bar" style="--bar-width: 78%; --bar-color: #764ba2;">
+                                            <span class="bar-value">$55,122</span>
+                                        </div>
+                                    </div>
+                                    <div class="bar-row">
+                                        <span class="bar-label">Electronic accessories</span>
+                                        <div class="bar" style="--bar-width: 75%; --bar-color: #f093fb;">
+                                            <span class="bar-value">$54,337</span>
+                                        </div>
+                                    </div>
+                                    <div class="bar-row">
+                                        <span class="bar-label">Fashion accessories</span>
+                                        <div class="bar" style="--bar-width: 72%; --bar-color: #4facfe;">
+                                            <span class="bar-value">$54,305</span>
+                                        </div>
+                                    </div>
+                                    <div class="bar-row">
+                                        <span class="bar-label">Home & lifestyle</span>
+                                        <div class="bar" style="--bar-width: 70%; --bar-color: #00f2fe;">
+                                            <span class="bar-value">$53,861</span>
+                                        </div>
+                                    </div>
+                                    <div class="bar-row">
+                                        <span class="bar-label">Health & beauty</span>
+                                        <div class="bar" style="--bar-width: 67%; --bar-color: #43e97b;">
+                                            <span class="bar-value">$49,193</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="chart-panel" id="chart-1">
+                            <div class="chart-mock line-chart">
+                                <h5>Ventas Diarias a lo Largo del Tiempo</h5>
+                                <div class="line-chart-visual">
+                                    <svg viewBox="0 0 600 250" class="line-svg">
+                                        <polyline points="10,200 50,150 90,180 130,120 170,160 210,90 250,140 290,70 330,130 370,100 410,60 450,110 490,80 530,50 570,90" fill="none" stroke="url(#lineGradient)" stroke-width="3"/>
+                                        <defs>
+                                            <linearGradient id="lineGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                                                <stop offset="0%" style="stop-color:#667eea"/>
+                                                <stop offset="100%" style="stop-color:#764ba2"/>
+                                            </linearGradient>
+                                        </defs>
+                                    </svg>
+                                    <p class="chart-desc">Tendencia de ventas desde Enero hasta Marzo 2019</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="chart-panel" id="chart-2">
+                            <div class="chart-mock pie-chart">
+                                <h5>Distribucion de Metodos de Pago</h5>
+                                <div class="pie-container">
+                                    <div class="pie-visual">
+                                        <svg viewBox="0 0 200 200">
+                                            <circle cx="100" cy="100" r="80" fill="none" stroke="#667eea" stroke-width="40" stroke-dasharray="168 335" stroke-dashoffset="0" transform="rotate(-90 100 100)"/>
+                                            <circle cx="100" cy="100" r="80" fill="none" stroke="#764ba2" stroke-width="40" stroke-dasharray="163 335" stroke-dashoffset="-168" transform="rotate(-90 100 100)"/>
+                                            <circle cx="100" cy="100" r="80" fill="none" stroke="#f093fb" stroke-width="40" stroke-dasharray="163 335" stroke-dashoffset="-331" transform="rotate(-90 100 100)"/>
+                                        </svg>
+                                    </div>
+                                    <div class="pie-legend">
+                                        <div class="legend-item"><span class="legend-color" style="background:#667eea"></span> Ewallet - 34.5%</div>
+                                        <div class="legend-item"><span class="legend-color" style="background:#764ba2"></span> Cash - 34.4%</div>
+                                        <div class="legend-item"><span class="legend-color" style="background:#f093fb"></span> Credit card - 31.1%</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="chart-panel" id="chart-3">
+                            <div class="chart-mock histogram-chart">
+                                <h5>Distribucion de Totales de Venta</h5>
+                                <div class="histogram-visual">
+                                    <div class="histogram-bars">
+                                        <div class="hist-bar" style="height: 25%"></div>
+                                        <div class="hist-bar" style="height: 45%"></div>
+                                        <div class="hist-bar" style="height: 70%"></div>
+                                        <div class="hist-bar" style="height: 90%"></div>
+                                        <div class="hist-bar" style="height: 100%"></div>
+                                        <div class="hist-bar" style="height: 85%"></div>
+                                        <div class="hist-bar" style="height: 65%"></div>
+                                        <div class="hist-bar" style="height: 50%"></div>
+                                        <div class="hist-bar" style="height: 35%"></div>
+                                        <div class="hist-bar" style="height: 20%"></div>
+                                        <div class="hist-bar" style="height: 15%"></div>
+                                        <div class="hist-bar" style="height: 10%"></div>
+                                    </div>
+                                    <div class="hist-lines">
+                                        <div class="hist-line mean-line" title="Media">
+                                            <span>Media: $322.97</span>
+                                        </div>
+                                        <div class="hist-line median-line" title="Mediana">
+                                            <span>Mediana: $312.75</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="chart-panel" id="chart-4">
+                            <div class="chart-mock heatmap-chart">
+                                <h5>Mapa de Calor - Correlacion entre Variables</h5>
+                                <div class="heatmap-grid">
+                                    <div class="heatmap-labels-top">
+                                        <span>Unit price</span><span>Quantity</span><span>Tax</span><span>Total</span><span>Rating</span>
+                                    </div>
+                                    <div class="heatmap-row">
+                                        <span class="heatmap-label">Unit price</span>
+                                        <div class="heatmap-cell" style="--heat: 1.0" title="1.00">1.00</div>
+                                        <div class="heatmap-cell" style="--heat: 0.1" title="0.01">0.01</div>
+                                        <div class="heatmap-cell" style="--heat: 0.6" title="0.63">0.63</div>
+                                        <div class="heatmap-cell" style="--heat: 0.6" title="0.63">0.63</div>
+                                        <div class="heatmap-cell" style="--heat: 0.1" title="-0.01">-.01</div>
+                                    </div>
+                                    <div class="heatmap-row">
+                                        <span class="heatmap-label">Quantity</span>
+                                        <div class="heatmap-cell" style="--heat: 0.1" title="0.01">0.01</div>
+                                        <div class="heatmap-cell" style="--heat: 1.0" title="1.00">1.00</div>
+                                        <div class="heatmap-cell" style="--heat: 0.7" title="0.71">0.71</div>
+                                        <div class="heatmap-cell" style="--heat: 0.7" title="0.71">0.71</div>
+                                        <div class="heatmap-cell" style="--heat: 0.1" title="-0.02">-.02</div>
+                                    </div>
+                                    <div class="heatmap-row">
+                                        <span class="heatmap-label">Tax</span>
+                                        <div class="heatmap-cell" style="--heat: 0.6" title="0.63">0.63</div>
+                                        <div class="heatmap-cell" style="--heat: 0.7" title="0.71">0.71</div>
+                                        <div class="heatmap-cell" style="--heat: 1.0" title="1.00">1.00</div>
+                                        <div class="heatmap-cell" style="--heat: 1.0" title="1.00">1.00</div>
+                                        <div class="heatmap-cell" style="--heat: 0.1" title="-0.01">-.01</div>
+                                    </div>
+                                    <div class="heatmap-row">
+                                        <span class="heatmap-label">Total</span>
+                                        <div class="heatmap-cell" style="--heat: 0.6" title="0.63">0.63</div>
+                                        <div class="heatmap-cell" style="--heat: 0.7" title="0.71">0.71</div>
+                                        <div class="heatmap-cell" style="--heat: 1.0" title="1.00">1.00</div>
+                                        <div class="heatmap-cell" style="--heat: 1.0" title="1.00">1.00</div>
+                                        <div class="heatmap-cell" style="--heat: 0.1" title="-0.01">-.01</div>
+                                    </div>
+                                    <div class="heatmap-row">
+                                        <span class="heatmap-label">Rating</span>
+                                        <div class="heatmap-cell" style="--heat: 0.1" title="-0.01">-.01</div>
+                                        <div class="heatmap-cell" style="--heat: 0.1" title="-0.02">-.02</div>
+                                        <div class="heatmap-cell" style="--heat: 0.1" title="-0.01">-.01</div>
+                                        <div class="heatmap-cell" style="--heat: 0.1" title="-0.01">-.01</div>
+                                        <div class="heatmap-cell" style="--heat: 1.0" title="1.00">1.00</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 7: Hallazgos -->
+        <section class="slide" data-slide="7">
+            <div class="slide-content">
+                <div class="container">
+                    <div class="text-center mb-5">
+                        <span class="section-label animate-in">Resultados</span>
+                        <h2 class="section-title animate-in delay-1">Hallazgos Principales</h2>
+                    </div>
+                    <div class="row g-4">
+                        <div class="col-lg-4">
+                            <div class="finding-card animate-in delay-1">
+                                <div class="finding-number">01</div>
+                                <h5>Ventas Equilibradas</h5>
+                                <p>Las 6 lineas de producto muestran ventas similares.
+                                   <strong>Food & beverages</strong> lidera con $56,144 USD,
+                                   con apenas un 12% de diferencia respecto a la ultima categoria.</p>
+                                <div class="finding-stat">
+                                    <span class="stat-value">$56,144</span>
+                                    <span class="stat-label">Top ventas</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="finding-card animate-in delay-2">
+                                <div class="finding-number">02</div>
+                                <h5>Metodos de Pago</h5>
+                                <p>Los tres metodos de pago (Ewallet, Cash, Tarjeta)
+                                   tienen distribucion casi identica (~33% cada uno),
+                                   indicando que los clientes no tienen preferencia fuerte.</p>
+                                <div class="finding-stat">
+                                    <span class="stat-value">~33%</span>
+                                    <span class="stat-label">Distribucion equitativa</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="finding-card animate-in delay-3">
+                                <div class="finding-number">03</div>
+                                <h5>Rating Independiente</h5>
+                                <p>El rating de los clientes NO tiene correlacion
+                                   con el monto de compra (correlacion ~ -0.01).
+                                   La satisfaccion no depende del gasto.</p>
+                                <div class="finding-stat">
+                                    <span class="stat-value">-0.01</span>
+                                    <span class="stat-label">Correlacion nula</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Stats animados -->
+                    <div class="stats-bar animate-in delay-4">
+                        <div class="stat-item">
+                            <div class="stat-counter" data-target="1000">0</div>
+                            <div class="stat-name">Transacciones</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-counter" data-target="3">0</div>
+                            <div class="stat-name">Sucursales</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-counter" data-target="6">0</div>
+                            <div class="stat-name">Lineas de Producto</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-counter" data-target="5">0</div>
+                            <div class="stat-name">Visualizaciones</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 8: Codigo en Vivo -->
+        <section class="slide" data-slide="8">
+            <div class="slide-content">
+                <div class="container">
+                    <div class="text-center mb-5">
+                        <span class="section-label animate-in">Interactivo</span>
+                        <h2 class="section-title animate-in delay-1">Explora el Codigo</h2>
+                        <p class="section-text animate-in delay-2">Selecciona un paso del analisis para ver el codigo correspondiente</p>
+                    </div>
+
+                    <div class="code-explorer animate-in delay-3">
+                        <div class="code-steps">
+                            <button class="code-step active" onclick="showCodeStep(0, this)">
+                                <i class="bi bi-1-circle"></i> Importar librerias
+                            </button>
+                            <button class="code-step" onclick="showCodeStep(1, this)">
+                                <i class="bi bi-2-circle"></i> Cargar datos
+                            </button>
+                            <button class="code-step" onclick="showCodeStep(2, this)">
+                                <i class="bi bi-3-circle"></i> Seleccionar columnas
+                            </button>
+                            <button class="code-step" onclick="showCodeStep(3, this)">
+                                <i class="bi bi-4-circle"></i> Filtrar datos
+                            </button>
+                            <button class="code-step" onclick="showCodeStep(4, this)">
+                                <i class="bi bi-5-circle"></i> Agrupar y agregar
+                            </button>
+                            <button class="code-step" onclick="showCodeStep(5, this)">
+                                <i class="bi bi-6-circle"></i> Estadisticas
+                            </button>
+                            <button class="code-step" onclick="showCodeStep(6, this)">
+                                <i class="bi bi-7-circle"></i> Crear grafico
+                            </button>
+                        </div>
+                        <div class="code-display">
+                            <div class="code-window">
+                                <div class="code-header">
+                                    <span class="dot red"></span>
+                                    <span class="dot yellow"></span>
+                                    <span class="dot green"></span>
+                                    <span class="code-title" id="codeFileName">taller1_supermarket.py</span>
+                                </div>
+                                <pre class="code-body" id="codeContent">
+                                </pre>
+                            </div>
+                            <div class="code-explanation" id="codeExplanation">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 9: Conclusiones -->
+        <section class="slide slide-final" data-slide="9">
+            <div class="slide-content text-center">
+                <div class="animate-in">
+                    <i class="bi bi-rocket-takeoff display-1 gradient-text"></i>
+                </div>
+                <h2 class="display-3 fw-800 animate-in delay-1">
+                    Gracias por<br>
+                    <span class="gradient-text">tu atencion!</span>
+                </h2>
+                <p class="lead animate-in delay-2">
+                    Este proyecto demuestra el poder de Python para el analisis de datos.
+                </p>
+                <div class="conclusion-points animate-in delay-3">
+                    <div class="conclusion-item">
+                        <i class="bi bi-check2-all"></i>
+                        <span>Exploracion y limpieza de datos reales</span>
+                    </div>
+                    <div class="conclusion-item">
+                        <i class="bi bi-check2-all"></i>
+                        <span>Estadisticas descriptivas completas</span>
+                    </div>
+                    <div class="conclusion-item">
+                        <i class="bi bi-check2-all"></i>
+                        <span>5 tipos de visualizaciones profesionales</span>
+                    </div>
+                    <div class="conclusion-item">
+                        <i class="bi bi-check2-all"></i>
+                        <span>Pipeline de analisis reproducible</span>
+                    </div>
+                </div>
+                <div class="contact-final animate-in delay-4">
+                    <a href="mailto:analistadatosjunior@gmail.com" class="btn btn-outline-light btn-lg me-3">
+                        <i class="bi bi-envelope me-2"></i>Contacto
+                    </a>
+                    <a href="https://linkedin.com/in/dkcontreras" class="btn btn-primary btn-lg" target="_blank">
+                        <i class="bi bi-linkedin me-2"></i>LinkedIn
+                    </a>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Controles de navegacion -->
+    <div class="slide-controls">
+        <button class="control-btn" id="prevBtn" onclick="prevSlide()">
+            <i class="bi bi-chevron-left"></i>
+        </button>
+        <span class="slide-counter">
+            <span id="currentSlide">1</span> / <span id="totalSlides">10</span>
+        </span>
+        <button class="control-btn" id="nextBtn" onclick="nextSlide()">
+            <i class="bi bi-chevron-right"></i>
+        </button>
+    </div>
+
+    <!-- Indicador de teclado -->
+    <div class="keyboard-hint" id="keyboardHint">
+        <span><kbd>&larr;</kbd> <kbd>&rarr;</kbd> para navegar</span>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
