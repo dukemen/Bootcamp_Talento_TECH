@@ -1,5 +1,6 @@
 # Importar las bibliotecas necesarias
 import pandas as pd
+import matplotlib.pyplot as plt
 from tkinter import Tk, filedialog
 
 # Crear una ventana oculta de tkinter
@@ -112,6 +113,44 @@ if ruta_archivo:
         print("   No es necesario aplicar limpieza de datos.")
 
     print("\n" + "="*60)
+
+    # ==============================
+    # GRAFICA DE LINEA
+    # Salario por ID
+    # ==============================
+
+    plt.figure(figsize=(8,5))
+    plt.plot(df["ID"], df["Salario"], marker="o", linestyle="-")
+    plt.title("Salario por Empleado (ID)")
+    plt.xlabel("ID Empleado")
+    plt.ylabel("Salario")
+    plt.grid(True)
+    plt.show()
+
+    # ==============================
+    # GRAFICA DE BARRAS
+    # Salario promedio por Departamento
+    # ==============================
+
+    salario_dep = df.groupby("Departamento")["Salario"].mean()
+    conteo_dep = df["Departamento"].value_counts()
+    total_empleados = len(df)
+
+    fig, ax = plt.subplots(figsize=(8,5))
+    barras = salario_dep.plot(kind="bar", ax=ax)
+    plt.title("Salario Promedio por Departamento")
+    plt.xlabel("Departamento")
+    plt.ylabel("Salario Promedio")
+    plt.xticks(rotation=45)
+
+    for i, (dep, salario) in enumerate(salario_dep.items()):
+        cantidad = conteo_dep[dep]
+        porcentaje = (cantidad / total_empleados) * 100
+        ax.text(i, salario + salario * 0.01, f"{cantidad} emp.\n({porcentaje:.1f}%)",
+                ha="center", va="bottom", fontsize=9)
+
+    plt.tight_layout()
+    plt.show()
 
     # Visualizar el DataFrame completo en VS Code
     df
